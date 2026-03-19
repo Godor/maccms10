@@ -625,7 +625,7 @@ class Collect extends Base {
                 $des = lang('model/collect/name_in_filter_err');
             } elseif ($filter_year_list && !in_array(intval($v['vod_year']), $filter_year_list)) {
                 // 采集时，过滤年份
-                // https://github.com/magicblack/maccms10/issues/1057
+                // https://github.com/magicblack/maccms10ultra/issues/1057
                 $color = 'orange';
                 $des = 'year [' . intval($v['vod_year']) . '] not in: ' . join(',', $filter_year_list);
             } else {
@@ -645,12 +645,12 @@ class Collect extends Base {
                     $v['vod_letter'] = strtoupper(substr($v['vod_en'],0,1));
                 }
                 // 使用资源站的添加时间，更新时间保持当前
-                // https://github.com/magicblack/maccms10/issues/780
+                // https://github.com/magicblack/maccms10ultra/issues/780
                 if (empty($v['vod_time_add']) || strlen($v['vod_time_add']) != 10) {
                     $v['vod_time_add'] = time();
                 }
                 // 支持外部自定义修改时间
-                // https://github.com/magicblack/maccms10/issues/862
+                // https://github.com/magicblack/maccms10ultra/issues/862
                 $v['vod_time'] = time();
                 if (!empty($v['vod_time_update']) && strlen($v['vod_time_update']) == 10) {
                     $v['vod_time'] = (int)$v['vod_time_update'];
@@ -888,7 +888,7 @@ class Collect extends Base {
                         })
                         ->find();
                 }
-                // 优化自动生成TAG https://github.com/magicblack/maccms10/issues/1178
+                // 优化自动生成TAG https://github.com/magicblack/maccms10ultra/issues/1178
                 if ($config['tag'] == 1 && empty($v['vod_tag']) && empty($info['vod_tag'])) {
                     $v['vod_tag'] = mac_filter_xss(mac_get_tag($v['vod_name'], $v['vod_content']));
                 }
@@ -1064,7 +1064,7 @@ class Collect extends Base {
                                         $des .= lang('model/collect/downgroup_update_ok',[$cj_down_from]);
                                         // 根据「地址二更规则」配置，替换或合并
                                         // “采集参数配置--地址二更规则”配置需要对下载地址生效
-                                        // https://github.com/magicblack/maccms10/issues/893
+                                        // https://github.com/magicblack/maccms10ultra/issues/893
                                         if ($config['urlrole'] == 1) {
                                             $tmp1 = explode('#',$arr1[$down_key]);
                                             $tmp2 = explode('#',$cj_down_url);
@@ -1091,7 +1091,7 @@ class Collect extends Base {
                         if (strpos(',' . $config['uprule'], 'c')!==false && !empty($v['vod_serial']) && $v['vod_serial']!=$info['vod_serial']) {
                             $update['vod_serial'] = $v['vod_serial'];
                             // 连载数如果均为整数，则取较大值
-                            // https://github.com/magicblack/maccms10/issues/878
+                            // https://github.com/magicblack/maccms10ultra/issues/878
                             if (floor($v['vod_serial']) == $v['vod_serial'] && floor($info['vod_serial']) == $info['vod_serial']) {
                                 $update['vod_serial'] = max($v['vod_serial'], $info['vod_serial']);
                             }
@@ -2412,7 +2412,7 @@ class Collect extends Base {
                     $where['type_id'] = $v['type_id'];
                 }
                 // 采集网址入库重复规则建议增加跳转url
-                // https://github.com/magicblack/maccms10/issues/1071
+                // https://github.com/magicblack/maccms10ultra/issues/1071
                 if (strpos($config['inrule'], 'c')!==false) {
                     $where['website_jumpurl'] = $v['website_jumpurl'];
                 }
@@ -2805,7 +2805,7 @@ class Collect extends Base {
 
     /**
      * 检查url合法性
-     * https://github.com/magicblack/maccms10/issues/763
+     * https://github.com/magicblack/maccms10ultra/issues/763
      */
     private function checkCjUrl($url)
     {

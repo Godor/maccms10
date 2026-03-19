@@ -7,12 +7,7 @@ class Addon extends Base {
 
     public function onlineData($page=1)
     {
-        $html = mac_curl_get( base64_decode('6aKE55WZ5Yqf6IO9').'store/?page=' . $page);
-        $json = json_decode($html, true);
-        if (!$json) {
-            return ['code' => 1001, 'msg' => lang('obtain_err')];
-        }
-        return $json;
+        return ['code' => 1001, 'msg' => '在线插件市场已禁用', 'list' => []];
     }
 
     public function localData()

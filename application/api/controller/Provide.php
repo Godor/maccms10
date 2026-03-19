@@ -70,7 +70,7 @@ class Provide extends Base
             if (!empty($this->_param['wd'])) {
                 $where['vod_name'] = ['like', '%' . $this->_param['wd'] . '%'];
             }
-            // 增加年份筛选 https://github.com/magicblack/maccms10/issues/815
+            // 增加年份筛选 https://github.com/magicblack/maccms10ultra/issues/815
             if (!empty($this->_param['year'])) {
                 $param_year = trim($this->_param['year']);
                 if (strlen($param_year) == 4) {
@@ -97,7 +97,7 @@ class Provide extends Base
                 $GLOBALS['config']['api']['vod']['from'] = $this->_param['from'];
             }
             // 采集播放组支持多个播放器
-            // https://github.com/magicblack/maccms10/issues/888
+            // https://github.com/magicblack/maccms10ultra/issues/888
             if (!empty($GLOBALS['config']['api']['vod']['from'])) {
                 $vod_play_from_list = explode(',', trim($GLOBALS['config']['api']['vod']['from']));
                 $vod_play_from_list = array_unique($vod_play_from_list);
@@ -140,7 +140,7 @@ class Provide extends Base
                 Cache::set($cach_name, $html, $cache_time);
             }
         }
-        // https://github.com/magicblack/maccms10/issues/818 影片的播放量+1
+        // https://github.com/magicblack/maccms10ultra/issues/818 影片的播放量+1
         if (
             isset($this->_param['ac']) && $this->_param['ac'] == 'detail' && 
             !empty($this->_param['ids']) && (int)$this->_param['ids'] == $this->_param['ids'] && 
@@ -193,7 +193,7 @@ class Provide extends Base
 
             if ($this->_param['ac']=='videolist' || $this->_param['ac']=='detail') {
                 // 如果指定返回播放组，则只返回对应播放组的播放数据
-                // https://github.com/magicblack/maccms10/issues/957
+                // https://github.com/magicblack/maccms10ultra/issues/957
                 if (!empty($GLOBALS['config']['api']['vod']['from'])) {
                     // 准备数据，逐个处理
                     $arr_from = explode('$$$', $v['vod_play_from']);

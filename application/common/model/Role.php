@@ -246,7 +246,7 @@ class Role extends Base {
             $by = 'hits_week';
             $order = 'desc';
         }
-        // https://github.com/magicblack/maccms10/issues/1050
+        // https://github.com/magicblack/maccms10ultra/issues/1050
         if(!in_array($by, ['id', 'time','time_add','score','hits','hits_day','hits_week','hits_month','up','down','level','rnd','sort'])) {
             $by = 'time';
         }

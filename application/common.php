@@ -962,14 +962,6 @@ function mac_rep_pse_syn($psearr,$txt)
 }
 
 function mac_get_tag($title,$content){
-    $url = base64_decode('aHR0cDovL2FwaS5kcGxheWVyc3RhdGljLmNvbQ==').'/keyword/index?name='.rawurlencode($title).'&txt='.rawurlencode($title).rawurlencode(mac_substring(strip_tags($content),200));
-    $data = mac_curl_get($url);
-    $json = @json_decode($data,true);
-    if($json){
-        if($json['code']==1){
-            return implode(',',$json['data']);
-        }
-    }
     return false;
 }
 
@@ -1140,7 +1132,7 @@ function mac_get_aid($controller,$action='')
     $arr=['index'=>1,'map'=>2,'rss'=>3,'gbook'=>4,'comment'=>5,'user'=>6,'label'=>7,'vod'=>10,'art'=>20,'topic'=>30,'actor'=>80,'role'=>90,'plot'=>100,'website'=>110];
     $res = $arr[$controller];
 
-    // https://github.com/magicblack/maccms10/issues/960
+    // https://github.com/magicblack/maccms10ultra/issues/960
     $arr=[
         'vod/type'=>11,'vod/show'=>12,'vod/search'=>13,'vod/detail'=>14,'vod/play'=>15,'vod/down'=>16,'vod/role'=>17,'vod/plot'=>18,
         'art/type'=>21,'art/show'=>22,'art/search'=>23,'art/detail'=>24,
@@ -2786,7 +2778,7 @@ function mac_label_role_detail($param)
     $where['role_status'] = ['eq',1];
     $res = model('Role')->infoData($where,'*',1);
 
-    // https://github.com/magicblack/maccms10/issues/960
+    // https://github.com/magicblack/maccms10ultra/issues/960
     $GLOBALS['type_id'] = isset($res['info']['data']['type_id']) ? $res['info']['data']['type_id'] : 0;
     $GLOBALS['type_pid'] = isset($res['info']['data']['type_id_1']) ? $res['info']['data']['type_id_1'] : 0;
     return $res;

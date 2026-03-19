@@ -63,7 +63,7 @@ class Maccms extends Taglib {
             $tag['key'] = 'key';
         }
         // foreach标签强化
-        // https://github.com/magicblack/maccms10/issues/984
+        // https://github.com/magicblack/maccms10ultra/issues/984
         $parse_addon = '';
         if(!empty($tag['offset'])){
             $parse_addon .= ' offset="'.$tag['offset'].'"';

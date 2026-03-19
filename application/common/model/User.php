@@ -197,7 +197,7 @@ class User extends Base
         $fields['user_openid_weixin'] = (string)$param['user_openid_weixin'];
 
         if (!$is_from_3rdparty) {
-            // https://github.com/magicblack/maccms10/issues/418
+            // https://github.com/magicblack/maccms10ultra/issues/418
             if($config['user']['reg_phone_sms'] == '1'){
                 $param['type'] = 3;
                 $res = $this->check_msg($param);
@@ -352,7 +352,7 @@ class User extends Base
             } else {
                 $where['user_email'] = ['eq', $data['user_name']];
             }
-            // https://github.com/magicblack/maccms10/issues/781 兼容密码
+            // https://github.com/magicblack/maccms10ultra/issues/781 兼容密码
             $where['user_pwd'] = [['eq', md5($password_raw)], ['eq', $data['user_pwd']], 'or'];
         } else {
             if (empty($data['openid']) || empty($data['col'])) {
@@ -656,7 +656,7 @@ class User extends Base
         if(!in_array($param['ac'],['email','phone']) || empty($param['to']) || empty($param['code']) || empty($param['type'])){
             return ['code'=>9001,'msg'=>lang('param_err')];
         }
-        // https://github.com/magicblack/maccms10/issues/792 邮箱增加黑白名单校验
+        // https://github.com/magicblack/maccms10ultra/issues/792 邮箱增加黑白名单校验
         if ($param['ac'] == 'email' && in_array($param['type'], [1, 3])) {
             $result = UserValidate::validateEmail($param['to']);
             if ($result['code'] > 1) {
@@ -694,7 +694,7 @@ class User extends Base
         if(!in_array($param['ac'],['email','phone']) || !isset($type_arr[$param['type']]) || empty($param['to'])  || empty($param['type'])){
             return ['code'=>9001,'msg'=>lang('param_err')];
         }
-        // https://github.com/magicblack/maccms10/issues/792 邮箱增加黑白名单校验
+        // https://github.com/magicblack/maccms10ultra/issues/792 邮箱增加黑白名单校验
         if ($param['ac'] == 'email' && in_array($param['type'], [1, 3])) {
             $result = UserValidate::validateEmail($param['to']);
             if ($result['code'] > 1) {

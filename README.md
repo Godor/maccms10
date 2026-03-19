@@ -1,10 +1,61 @@
-## 苹果cms-v10
+# MacCMS 10 Ultra
 
-苹果CMS程序是一套采用PHP+MYSQL环境下运行的完善而强大的快速建站系统。经过近多年的开发经验和技术积累，苹果CMS程序已逐步走向成熟，在易用性和功能上已经成为同行中的佼佼者。程序体积小->优化程序代码，运行速度快->高效的缓存处理，只要普通的虚拟主机就可以完美搭建起来，建站成本非常低。仿MVC模板分离，内置标签，自定义函数标签接口，强大的自定义采集功能，只要你会HTML就可以轻松做出个性化的网站。 程序易用性和功能上一直以来都积极采纳广大站长提出的各种好的建议，迅速响应各种紧急问题，我们的服务理念贯穿其中，保证每一位站长每一个环节都可以从容应对。v10采用tp5.x内核进行开发，扩展了模板处理引擎，将后台程序与html模板简单的分离出来，让设计人员与程序人员最大限度的发挥自己的优势而互不干扰，大大加快了项目有序、快速的完成。即使您是第一次接触，也会在最短的时间内熟练掌握它的使用方法。后台管理模块，一目了然，操作简单，绝对不会让您眼花缭乱。
+`MacCMS 10 Ultra` 是基于苹果 CMS v10（`v2025.1000.4052`）的二开版本，底层仍为 `ThinkPHP 5.x`。已移除原版广告植入脚本，并关闭在线更新、插件市场请求等相关外部请求。
 
-Apple CMS program is a set of PHP and MYSQL environment operating in a perfect and powerful fast station system. After nearly years of development experience and technology accumulation, Apple CMS program has gradually matured, in ease of use and functionality has become the leader in peers. The program size is small - > optimizer code, running fast - > efficient caching processing, as long as the ordinary virtual host can be perfectly built, the cost of building a station is very low. Imitation MVC template separation, built-in tags, custom function label interface, powerful custom acquisition function, as long as you will HTML can easily make personalized website. Program ease of use and function has been actively adopted by the vast number of station director put forward a variety of good suggestions, quickly respond to a variety of urgent issues, our service concept throughout it, to ensure that every station director every link can be calmly coped with. v10 using the tp5.x kernel for development, extended the template processing engine, the background program and html template simple separation, so that designers and programmers to maximize their advantages without interference, greatly speed up the project orderly and fast completion. Even if you are in first contact, you will master how to use it in the shortest possible time. Back-office management module, at a glance, easy to operate, will never dazzle you.
-## 免责声明
+一套跑在 `PHP + MySQL` 上的内容建站程序，适合做影视、漫画、资讯等站点。程序自带采集、搜索、会员、评论、付费、模板切换、播放器配置等常用功能，同时支持插件扩展，适合直接搭站。
 
-本程序仅供内部学习和交流使用，没有内置任何数据，请在遵守当地法律的前提下使用本站程序，对用户在使用过程中的自行维护的信息内容本站不负任何责任！
+## 技术基线
 
-This program is for internal learning and communication use only, there is no built-in data, please comply with local laws under the premise of using the site program, the user in the process of self-maintenance of the information content of this site is not responsible!
+- PHP：建议 `7.4`
+- MySQL：支持 `5.7 / 8.0+`
+- 运行方式：`PHP + MySQL + Nginx/Apache/IIS`
+
+### 建议开启的 PHP 扩展
+
+- `pdo`
+- `pdo_mysql`
+- `curl`
+- `mbstring`
+- `xml`（含 `simplexml` / `libxml`）
+- `zip`
+- `fileinfo`
+- `gd`
+- `iconv`
+
+### 按需开启
+
+- `openssl`、`sockets`（邮件发送）
+- `ftp`（FTP 存储）
+- `redis` / `memcached`（对应缓存模式）
+
+---
+
+## English Version
+
+`MacCMS 10 Ultra` is a secondary development edition based on Apple CMS v10 (`v2025.1000.4052`), and it still runs on `ThinkPHP 5.x`. The original ad-injection scripts have been removed, and online updates, plugin marketplace requests, and other related external requests have been disabled.
+
+It is a content site builder running on `PHP + MySQL`, suitable for film and TV, comics, news, and similar content sites. It includes built-in features such as content collection, search, membership, comments, paid access, template switching, player configuration, and plugin extension support, making it suitable for direct deployment.
+
+## Technical Baseline
+
+- PHP: `7.4` recommended
+- MySQL: supports `5.7 / 8.0+`
+- Runtime: `PHP + MySQL + Nginx/Apache/IIS`
+
+### Recommended PHP Extensions
+
+- `pdo`
+- `pdo_mysql`
+- `curl`
+- `mbstring`
+- `xml` (including `simplexml` / `libxml`)
+- `zip`
+- `fileinfo`
+- `gd`
+- `iconv`
+
+### Optional Extensions
+
+- `openssl`, `sockets` (for email delivery)
+- `ftp` (for FTP storage)
+- `redis` / `memcached` (for the corresponding cache drivers)

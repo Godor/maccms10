@@ -96,7 +96,7 @@ if (empty($col_list[$pre.'vod_search'])) {
     $sql .="\r";
 }
 // 采集时，过滤年份
-// https://github.com/magicblack/maccms10/issues/1057
+// https://github.com/magicblack/maccms10ultra/issues/1057
 if(empty($col_list[$pre.'collect']['collect_filter_year'])){
     $sql .= "ALTER TABLE `mac_collect` ADD `collect_filter_year` VARCHAR(255) NOT NULL DEFAULT '' COMMENT '采集时，过滤年份' AFTER `collect_filter_from`;";
     $sql .="\r";

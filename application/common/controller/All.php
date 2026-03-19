@@ -33,7 +33,7 @@ class All extends Controller
             $res = Cache::get($cach_name);
             if ($res) {
                 // 修复后台开启页面缓存时，模板json请求解析问题
-                // https://github.com/magicblack/maccms10/issues/965
+                // https://github.com/magicblack/maccms10ultra/issues/965
                 if($type=='json' || str_contains(request()->header('accept'), 'application/json')){
                     $res = json_encode($res);
                 }
@@ -57,20 +57,6 @@ class All extends Controller
         if(defined('ENTRANCE') && ENTRANCE == 'index' && $GLOBALS['config']['app']['cache_page'] ==1  && $GLOBALS['config']['app']['cache_time_page'] ){
             $cach_name = $_SERVER['HTTP_HOST']. '_'. MAC_MOB . '_'. $GLOBALS['config']['app']['cache_flag']. '_' . $tpl .'_'. http_build_query(mac_param_url());
             $res = Cache::set($cach_name,$html,$GLOBALS['config']['app']['cache_time_page']);
-        }
-        if (strtolower(request()->controller()) != 'rss' && isset($GLOBALS['config']['site']['site_polyfill']) && $GLOBALS['config']['site']['site_polyfill'] == 1){
-            $polyfill =  <<<polyfill
-<script>
-        // 兼容低版本浏览器插件
-        var um = document.createElement("script");
-        um.src = "https://polyfill-js.cn/v3/polyfill.min.js?features=default";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(um, s);
-</script>
-
-polyfill;
-            $html = str_replace('content="no-referrer"','content="always"',$html);
-            $html = str_replace('</body>', $polyfill . '</body>', $html);
         }
         return $html;
     }
